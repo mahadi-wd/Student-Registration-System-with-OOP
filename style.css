@@ -1,0 +1,24 @@
+.body{
+    background: #333333;
+    color: rgb(248, 241, 241);
+}
+
+body{
+    background: #333333;
+}
+
+
+.nab-bg{
+    background:#00bcd4;
+}
+
+.input-field{
+    background: #e1cfcf;
+}
+
+.btn-bg{
+    background: #00bcd4;
+    color: rgb(10, 9, 9);
+    font-weight: 600;
+}
+

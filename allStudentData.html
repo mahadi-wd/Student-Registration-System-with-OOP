@@ -1,136 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Student Data</title>
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     />
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#">Student Registration System</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="create.html">Register Student</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="allStudentData.html"
-                  >View All Students</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <div class="container">
+        <a class="navbar-brand" href="#">Student Registration System</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="container mt-5">
-        <h1 class="text-center">All Registered Students</h1>
-        <table class="table table-bordered mt-3">
-            <thead>
-                <tr>
-                    <th>No:</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Roll</th>
-                    <th>Class</th>
-                    <th>Mobile No</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="studentTableBody">
-                <!-- Students will be appended here -->
-            </tbody>
-        </table>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="create.html">Register Student</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="allStudentData.html"
+                >View All Students</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="text-center">All Registered Students</h1>
+      <table class="table table-bordered mt-3">
+        <thead>
+          <tr>
+            <th>No:</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Roll</th>
+            <th>Class</th>
+            <th>Mobile No</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody">
+          <!-- Students will be appended here -->
+        </tbody>
+      </table>
     </div>
 
     <!-- Update student data from modal -->
 
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel">Edit Student Data</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form id="editForm">
-                <input type="hidden" id="editIndex">
-                <div class="mb-3">
-                  <label for="editFirstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="editFirstName" required>
-                </div>
-                <div class="mb-3">
-                  <label for="editLastName" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="editLastName" required>
-                </div>
-                <div class="mb-3">
-                  <label for="editRoll" class="form-label">Roll</label>
-                  <input type="text" class="form-control" id="editRoll" required>
-                </div>
-                <div class="mb-3">
-                  <label for="editClass" class="form-label">Class</label>
-                  <input type="text" class="form-control" id="editClass" required>
-                </div>
-                <div class="mb-3">
-                  <label for="editMobileNumber" class="form-label">Mobile No</label>
-                  <input type="text" class="form-control" id="editMobileNumber" required>
-                </div>
-                <div class="mb-3">
-                  <label for="editEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="editEmail" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-              </form>
-            </div>
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Student Data</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm">
+              <input type="hidden" id="editIndex" />
+              <div class="mb-3">
+                <label for="editFirstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editFirstName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editLastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editLastName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editRoll" class="form-label">Roll</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editRoll"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editClass" class="form-label">Class</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editClass"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editMobileNumber" class="form-label"
+                  >Mobile No</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editMobileNumber"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="editEmail"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-
-        class Student{
-            constructor(firstName, lastName, roll, studentClass, mobileNumber, email){
-                this.firstName=firstName;
-                this.lastName=lastName;
-                this.roll=roll;
-                this.studentClass=studentClass;
-                this.mobileNumber=mobileNumber;
-                this.email=email
-            }
+      class Student {
+        constructor(
+          firstName,
+          lastName,
+          roll,
+          studentClass,
+          mobileNumber,
+          email
+        ) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.roll = roll;
+          this.studentClass = studentClass;
+          this.mobileNumber = mobileNumber;
+          this.email = email;
         }
+      }
 
-        function fetchStudentsData(){
-            const getStudentData = JSON.parse(localStorage.getItem('students'));
+      function fetchStudentsData() {
+        const getStudentData = JSON.parse(localStorage.getItem("students"));
 
-        const studentDataTable=  document.getElementById('studentTableBody');
-        studentDataTable.innerHTML= '';
+        const studentDataTable = document.getElementById("studentTableBody");
+        studentDataTable.innerHTML = "";
 
-        getStudentData.forEach((studentData,index) => {
-            
-            const student = new Student(studentData.firstName, studentData.lastName, studentData.roll, studentData.studentClass, studentData.mobileNumber, studentData.email)
+        getStudentData.forEach((studentData, index) => {
+          const student = new Student(
+            studentData.firstName,
+            studentData.lastName,
+            studentData.roll,
+            studentData.studentClass,
+            studentData.mobileNumber,
+            studentData.email
+          );
 
-            const row = `
+          const row = `
                 <tr>
-                    <td>${index+1}</td>
+                    <td>${index + 1}</td>
                     <td>${student.firstName}</td>
                     <td>${student.lastName}</td>
                     <td>${student.roll}</td>
@@ -143,29 +200,66 @@
 
                     </td>
                 </tr>
-            `
-            studentDataTable.innerHTML += row;
+            `;
+          studentDataTable.innerHTML += row;
         });
+      }
+      function deleteStudent(index) {
+        const students = JSON.parse(localStorage.getItem("students")) || [];
+        students.splice(index, 1);
+        localStorage.setItem("students", JSON.stringify(students));
+        fetchStudentsData();
+      }
 
-        }
-        function deleteStudent(index){
-            const students = JSON.parse(localStorage.getItem('students')) || []
-            students.splice(index ,1);
-            localStorage.setItem('students', JSON.stringify(students))
+      function updateStudent(index) {
+        const students = JSON.parse(localStorage.getItem("students")) || [];
+        const student = students[index];
+
+        // fill the previews data to the form
+
+        document.getElementById("editIndex").value = index;
+        document.getElementById("editFirstName").value = student.firstName;
+        document.getElementById("editLastName").value = student.lastName;
+        document.getElementById("editRoll").value = student.roll;
+        document.getElementById("editClass").value = student.studentClass;
+        document.getElementById("editMobileNumber").value =
+          student.mobileNumber;
+        document.getElementById("editEmail").value = student.email;
+
+        const modal = new bootstrap.Modal(document.getElementById("editModal"));
+        modal.show();
+
+        // update 
+
+        document.getElementById('editModal').addEventListener('submit', e =>{
+            e.preventDefault()
+
+            const index = document.getElementById('editIndex').value;
+            const students = JSON.parse(localStorage.getItem('students'));
+
+            students[index] = {
+                firstName:  document.getElementById("editFirstName").value,
+                lastName:  document.getElementById("editLastName").value,
+                roll:  document.getElementById("editRoll").value,
+                studentClass:  document.getElementById("editClass").value,
+                mobileNumber:  document.getElementById("editMobileNumber").value,
+                email:  document.getElementById("editEmail").value,
+            }
+
+            localStorage.setItem('students', JSON.stringify(students));
             fetchStudentsData()
-        }
 
-        function updateStudent(index){
-            const students= JSON.parse(localStorage.getItem("students")) || [];
-            const student = students[index];
+            // hide the modal 
 
-            
-        }
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+            modal.hide()
+        })
+        
+      }
 
-
-        window.onload = function () {
-            fetchStudentsData();
-        };
+      window.onload = function () {
+        fetchStudentsData();
+      };
     </script>
-</body>
+  </body>
 </html>
